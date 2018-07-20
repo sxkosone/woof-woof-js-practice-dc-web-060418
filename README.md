@@ -16,8 +16,10 @@ WHEN LOOKING AT PUP PUPS USER SHOULD BE ABLE TO:
 ### STEP 1: VIEW THE DATA
 All of the dog data is stored in the db.json file. You'll want to access this data
 using a json server. In order to do this, run the following commands:
+```
   npm install -g json-server
   json-server --watch db.json
+```
 
 This will setup the data on a server using restful routes at http://localhost:3000/pups.
 Go ahead and head to that url in your browser to view the data.
@@ -46,8 +48,11 @@ When you have the pup's information, the dog info div should have the following 
   - The button's text should change from Good to Bad or Bad to Good
   - The corresponding pup object in the database should be updated to reflect the new isGoodDog value
     - Please note, you can update a dog by making a PATCH request to /pups/:id
+    - PATCH request should include a ```Content-Type: application/json``` header to use the JSON in the request body.
+    - The data in the PATCH body should be ```{isGoodDog: true}```
 
-### BONUS! STEP 5: FILTER GOOD DOGS 
+
+### BONUS! STEP 5: FILTER GOOD DOGS
 When a user clicks on the Filter Good Dogs button, two things should happen:
  - The button's text should change from "Filter good dogs: OFF" to "Filter good dogs: ON", or vice versa.
  - If the button now says "ON" (meaning the filter is on), then the Dog Bar should only show pups whose isGoodDog attribute is true. If the filter is off, the Dog Bar should show all pups (like normal).
